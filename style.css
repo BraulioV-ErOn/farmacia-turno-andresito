@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border-radius: 25px;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.titulo {
+  font-size: 20px;
+  opacity: 0.8;
+  margin-bottom: 8px;
+}
+
+.fecha {
+  font-size: 14px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.contenido {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn-maps {
+  background: #72bd99;
+  color: black;
+  font-weight: 600;
+}
+
+.btn-maps:hover {
+  background: #5aa885;
+}
+
+.btn-call {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+
+.btn-call:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+footer {
+  margin-top: 25px;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
