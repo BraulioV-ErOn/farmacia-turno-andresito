@@ -1,66 +1,65 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #1f3b4d, #2c5364, #203a43);
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  color: #ffffff;
 }
 
-.tarjeta {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+.card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
   padding: 40px;
-  border-radius: 18px;
-  width: 380px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 420px;
   text-align: center;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  color: white;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.titulo {
-  font-size: 22px;
-  font-weight: 600;
+h1 {
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
-.aviso-turno {
-  font-size: 13px;
+.info-turno {
+  font-size: 14px;
   opacity: 0.8;
-  margin-bottom: 20px;
-  line-height: 1.4;
+  margin-bottom: 15px;
 }
 
 .fecha {
   font-size: 14px;
+  margin-bottom: 15px;
   opacity: 0.9;
-  margin-bottom: 10px;
 }
 
 .farmacia {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: bold;
   margin-bottom: 25px;
 }
 
 .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  display: block;
   text-decoration: none;
   padding: 14px;
+  margin: 10px 0;
   border-radius: 12px;
   font-weight: 600;
-  margin-top: 12px;
-  transition: 0.3s ease;
-  font-size: 15px;
+  transition: 0.3s;
 }
 
 .btn-maps {
-  background: #4caf50;
+  background: #3498db;
   color: white;
+}
+
+.btn-maps:hover {
+  background: #2980b9;
 }
 
 .btn-wpp {
@@ -68,8 +67,6 @@ body {
   color: white;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
-  opacity: 0.95;
+.btn-wpp:hover {
+  background: #1ebe5d;
 }
-
