@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Iconos -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Estilos -->
   <link rel="stylesheet" href="style.css">
@@ -14,14 +14,14 @@
 
 <body>
 
-  <div class="tarjeta">
+  <div class="card">
 
-    <div class="titulo">Farmacia de Turno</div>
+    <h1>Farmacia de Turno</h1>
 
-    <div class="aviso-turno">
+    <p class="info-turno">
       Los turnos comienzan a las 08:00 y finalizan a las 08:00 del día siguiente.
       El sistema muestra el turno correspondiente al día en que inició.
-    </div>
+    </p>
 
     <div id="fecha" class="fecha">
       Cargando fecha...
@@ -31,14 +31,12 @@
       Cargando turno...
     </div>
 
-    <a id="btn-maps" class="btn" target="_blank">
-      <i class="fa-solid fa-location-dot"></i>
-      Cómo llegar
+    <a id="btn-maps" class="btn btn-maps" target="_blank">
+      <i class="fa-solid fa-location-dot"></i> Cómo llegar
     </a>
 
     <a id="btn-wpp" class="btn btn-wpp" target="_blank">
-      <i class="fa-brands fa-whatsapp"></i>
-      WhatsApp
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp
     </a>
 
   </div>
