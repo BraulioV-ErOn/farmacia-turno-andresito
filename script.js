@@ -7,7 +7,6 @@ async function cargarTurno() {
 
         const filas = data.split("\n").map(f => f.split(","));
 
-        // Fecha actual en Argentina
         const hoy = new Date().toLocaleDateString("en-CA", {
             timeZone: "America/Argentina/Buenos_Aires"
         });
@@ -17,27 +16,32 @@ async function cargarTurno() {
         const btnMaps = document.getElementById("btn-maps");
         const btnWpp = document.getElementById("btn-wpp");
 
-        fechaElemento.textContent = new Date().toLocaleDateString("es-AR", {
-            weekday: "long",
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-            timeZone: "America/Argentina/Buenos_Aires"
-        });
+        for (let i = 1; i < filas.length; i++) {
+            const fecha = filas[i][0]?.trim();
 
-        const filaHoy = filas.find(f => f[0]?.trim() === hoy);
+            if (fecha === hoy) {
 
-        if (filaHoy) {
-            farmaciaElemento.textContent = filaHoy[1];
-            btnMaps.href = filaHoy[2];
-            btnWpp.href = filaHoy[3];
-        } else {
-            farmaciaElemento.textContent = "No hay turno cargado";
+                fechaElemento.textContent = new Date(fecha)
+                    .toLocaleDateString("es-AR", {
+                        weekday: "long",
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric"
+                    });
+
+                farmaciaElemento.textContent = filas[i][1];
+                btnMaps.href = filas[i][2];
+                btnWpp.href = filas[i][3];
+
+                return;
+            }
         }
 
+        farmaciaElemento.textContent = "No hay turno cargado";
+
     } catch (error) {
-        console.error("Error cargando datos:", error);
         document.getElementById("farmacia").textContent = "Error al cargar datos";
+        console.error(error);
     }
 }
 
