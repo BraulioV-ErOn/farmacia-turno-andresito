@@ -149,9 +149,10 @@ h1 {
 /* FOOTER */
 .footer {
     font-size: 10px;
-    opacity: 0.45;
     margin-top: 22px;
     letter-spacing: 0.3px;
     font-weight: 300;
+    color: #9fb3b8;
 }
+
 
