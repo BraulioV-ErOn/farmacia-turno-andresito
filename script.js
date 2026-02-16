@@ -1,69 +1,51 @@
-// ========= CONFIGURAR TU CSV ACÁ =========
-
-// Pegá tu enlace CSV público acá
-const CSV_URL = https://docs.google.com/spreadsheets/d/e/2PACX-1vTasNN3fvqils4m-YRo2ZEgkOPUT0PfwKd_Zq0JlYU_uoK7GeimiW6DBNc3mInQc83FysdoCT71k_Nl/pubhtml;
-
-// ==========================================
-
+const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTasNN3fvqils4m-YRo2ZEgkOPUT0PfwKd_Zq0JlYU_uoK7GeimiW6DBNc3mInQc83FysdoCT71k_Nl/pub?output=csv";
 
 function obtenerFechaTurno() {
-    const ahora = new Date();
+  const ahora = new Date();
+  const hora = ahora.getHours();
 
-    // Si es antes de las 08:00, sigue siendo turno del día anterior
-    if (ahora.getHours() < 8) {
-        ahora.setDate(ahora.getDate() - 1);
-    }
+  // Si es antes de las 08:00 sigue siendo el turno del día anterior
+  if (hora < 8) {
+    ahora.setDate(ahora.getDate() - 1);
+  }
 
-    return ahora;
+  return ahora.toISOString().split("T")[0];
 }
 
-function formatearFecha(fecha) {
-    return fecha.toLocaleDateString("es-AR", {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric"
-    });
+function formatearFecha(fechaISO) {
+  const fecha = new Date(fechaISO + "T00:00:00");
+  return fecha.toLocaleDateString("es-AR", {
+    weekday: "long",
+    day: "2-digit",
+    month: "long",
+    year: "numeric"
+  });
 }
 
 async function cargarTurno() {
-    try {
-        const fechaTurno = obtenerFechaTurno();
-        document.getElementById("fecha").textContent = formatearFecha(fechaTurno);
+  try {
+    const response = await fetch(CSV_URL);
+    const data = await response.text();
 
-        const respuesta = await fetch(CSV_URL);
-        const texto = await respuesta.text();
+    const filas = data.split("\n").map(f => f.split(","));
 
-        const lineas = texto.split("\n");
-        const fechaBuscada = fechaTurno.toISOString().split("T")[0];
+    const fechaTurno = obtenerFechaTurno();
 
-        let encontrado = false;
+    document.getElementById("fecha").textContent = formatearFecha(fechaTurno);
 
-        for (let i = 1; i < lineas.length; i++) {
-            const columnas = lineas[i].split(",");
+    const turno = filas.find(f => f[0] === fechaTurno);
 
-            const fechaCSV = columnas[0];
-            const nombre = columnas[1];
-            const maps = columnas[2];
-            const whatsapp = columnas[3];
-
-            if (fechaCSV === fechaBuscada) {
-                document.getElementById("farmacia").textContent = nombre;
-                document.getElementById("btnMaps").href = maps;
-                document.getElementById("btnWpp").href = whatsapp;
-                encontrado = true;
-                break;
-            }
-        }
-
-        if (!encontrado) {
-            document.getElementById("farmacia").textContent = "No hay turno cargado";
-        }
-
-    } catch (error) {
-        document.getElementById("farmacia").textContent = "Error cargando turno";
-        console.error(error);
+    if (turno) {
+      document.getElementById("farmacia").textContent = turno[1];
+      document.getElementById("btn-maps").href = turno[2];
+      document.getElementById("btn-wpp").href = turno[3];
+    } else {
+      document.getElementById("farmacia").textContent = "No hay turno cargado";
     }
+
+  } catch (error) {
+    document.getElementById("farmacia").textContent = "Error cargando datos";
+  }
 }
 
 cargarTurno();
