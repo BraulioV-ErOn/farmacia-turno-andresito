@@ -1,86 +1,93 @@
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #12343b, #081c22);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  color: white;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #12343b, #081c22);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  padding: 30px;
-  border-radius: 22px;
-  width: 92%;
-  max-width: 420px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 22px;
+    width: 92%;
+    max-width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .logo {
-  width: 80px;
-  margin-bottom: 5px;
+    width: 90px;
+    margin-bottom: 5px;
 }
 
-.localidad {
-  font-size: 14px;
-  opacity: 0.8;
-  margin-bottom: 10px;
+.ciudad {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 10px;
 }
 
 h1 {
-  margin: 10px 0 15px 0;
-  font-size: 26px;
+    margin: 10px 0;
+    font-weight: 700;
 }
 
-.info-turno {
-  font-size: 13px;
-  opacity: 0.8;
-  margin-bottom: 20px;
+.info {
+    font-size: 14px;
+    opacity: 0.75;
+    margin-bottom: 20px;
 }
 
 .fecha {
-  font-size: 15px;
-  margin-bottom: 8px;
-  opacity: 0.9;
+    margin-bottom: 8px;
+    font-size: 15px;
+    opacity: 0.8;
 }
 
-.farmacia {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 20px;
+h2 {
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
 .btn {
-  display: block;
-  width: 100%;
-  padding: 15px;
-  border-radius: 14px;
-  text-decoration: none;
-  font-weight: 600;
-  margin-bottom: 12px;
-  transition: 0.2s;
+    display: block;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
 }
 
-.btn:hover {
-  transform: scale(1.02);
+.btn i {
+    margin-right: 6px;
 }
 
 .btn-maps {
-  background: #4f7dd3;
-  color: white;
+    background: #4a7bd0;
+    color: white;
+}
+
+.btn-maps:hover {
+    background: #3a65b2;
 }
 
 .btn-wpp {
-  background: #2ecc71;
-  color: white;
+    background: #25D366;
+    color: white;
 }
 
-.firma {
-  margin-top: 20px;
-  font-size: 10px;
-  opacity: 0.5;
+.btn-wpp:hover {
+    background: #1ebe5d;
+}
+
+.credito {
+    font-size: 10px;
+    opacity: 0.4;
+    margin-top: 15px;
 }
