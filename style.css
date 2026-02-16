@@ -1,88 +1,103 @@
 body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c52, #2c5364);
+    padding: 20px;
 }
 
-/* TARJETA MÁS ANCHA */
 .card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
-  padding: 50px;
-  border-radius: 24px;
-  width: 95%;
-  max-width: 520px;   /* ← más ancho */
-  text-align: center;
-  color: white;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.45);
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 35px 25px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
 
-/* TÍTULO MÁS ELEGANTE */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.localidad {
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.9;
+    margin-bottom: 8px;
+}
+
 h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 34px;
-  margin-bottom: 18px;
-  font-weight: normal;
+    margin: 0 0 15px 0;
+    font-size: 24px;
 }
 
-/* TEXTO INFORMATIVO MÁS LIMPIO */
 .info-turno {
-  font-size: 14px;
-  line-height: 1.6;
-  opacity: 0.75;
-  margin-bottom: 20px;
-  max-width: 420px;
-  margin-left: auto;
-  margin-right: auto;
+    font-size: 13px;
+    opacity: 0.85;
+    margin-bottom: 18px;
+    line-height: 1.5;
 }
 
-/* FECHA MÁS SUTIL */
 .fecha {
-  font-size: 15px;
-  margin-bottom: 15px;
-  opacity: 0.85;
-  letter-spacing: 0.5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    opacity: 0.9;
 }
 
-/* NOMBRE FARMACIA MÁS PROTAGONISTA */
 .farmacia {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
 }
 
-/* BOTONES */
 .btn {
-  display: block;
-  text-decoration: none;
-  padding: 16px;
-  margin: 12px 0;
-  border-radius: 14px;
-  font-weight: 600;
-  transition: 0.3s ease;
-  font-size: 15px;
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 14px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.2s ease;
 }
 
 .btn-maps {
-  background: #3c8dbc;
-  color: white;
+    background: #3b82f6;
+    color: white;
 }
 
-.btn-maps:hover {
-  background: #2e78a1;
-  transform: translateY(-2px);
+.btn-maps:active {
+    transform: scale(0.98);
 }
 
 .btn-wpp {
-  background: #25D366;
-  color: white;
+    background: #25D366;
+    color: white;
 }
 
-.btn-wpp:hover {
-  background: #1ebe5d;
-  transform: translateY(-2px);
+.btn-wpp:active {
+    transform: scale(0.98);
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 11px;
+    opacity: 0.7;
 }
