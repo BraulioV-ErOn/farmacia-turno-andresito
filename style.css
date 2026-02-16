@@ -1,96 +1,106 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: radial-gradient(circle at top, #12343b, #081c22);
+    background: radial-gradient(circle at top, #13423b, #081c22);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 /* TARJETA */
 .card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(12px);
-    padding: 28px;
-    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(18px);
+    padding: 35px 30px;
+    border-radius: 24px;
     width: 92%;
-    max-width: 380px;
+    max-width: 420px;
     text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
 }
 
 /* LOGO */
-.logo {
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
+.logo-container {
+    margin-bottom: 12px;
+}
+
+.logo-container img {
+    width: 90px;
+    height: auto;
     margin-bottom: 6px;
 }
 
-/* LOCALIDAD */
-.ciudad {
+.localidad {
     font-size: 14px;
-    opacity: 0.85;
-    margin-bottom: 14px;
+    opacity: 0.75;
+    margin-bottom: 10px;
 }
 
-/* TITULO */
+/* TITULOS */
 h1 {
-    margin: 10px 0 10px;
-    font-size: 28px;
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 18px;
 }
 
-/* TEXTO */
 .info-turno {
-    font-size: 13px;
+    font-size: 14px;
     opacity: 0.8;
+    line-height: 1.6;
     margin-bottom: 18px;
 }
 
 .fecha {
-    font-size: 14px;
-    margin-bottom: 10px;
+    margin: 12px 0;
+    font-weight: 500;
     opacity: 0.9;
 }
 
 .farmacia {
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
 }
 
 /* BOTONES */
 .btn {
     display: block;
-    padding: 14px;
-    border-radius: 12px;
-    margin: 10px 0;
-    text-decoration: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 14px;
     font-weight: 600;
-    transition: 0.25s;
+    font-size: 15px;
+    text-decoration: none;
+    margin-bottom: 14px;
+    transition: all 0.25s ease;
 }
 
 .btn-maps {
-    background: #4c8bf5;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
     color: white;
+}
+
+.btn-maps:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
 }
 
 .btn-wpp {
-    background: #25D366;
+    background: linear-gradient(135deg, #22c55e, #16a34a);
     color: white;
 }
 
-.btn:hover {
-    transform: scale(1.04);
+.btn-wpp:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(34, 197, 94, 0.4);
 }
 
-/* FOOTER (TU NOMBRE SUPER DISCRETO) */
-.footer {
+/* FIRMA */
+.firma {
     margin-top: 18px;
     font-size: 10px;
-    opacity: 0.45;
+    opacity: 0.4;
+    letter-spacing: 1px;
 }
