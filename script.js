@@ -1,7 +1,7 @@
 // ========= CONFIGURAR TU CSV ACÁ =========
 
 // Pegá tu enlace CSV público acá
-const CSV_URL = "PEGAR_AQUI_TU_LINK_CSV";
+const CSV_URL = https://docs.google.com/spreadsheets/d/e/2PACX-1vTasNN3fvqils4m-YRo2ZEgkOPUT0PfwKd_Zq0JlYU_uoK7GeimiW6DBNc3mInQc83FysdoCT71k_Nl/pubhtml;
 
 // ==========================================
 
