@@ -1,40 +1,68 @@
-const urlCSV = "PEGÁ_ACÁ_TU_LINK_CSV";
+// ========= CONFIGURAR TU CSV ACÁ =========
+
+// Pegá tu enlace CSV público acá
+const CSV_URL = "PEGAR_AQUI_TU_LINK_CSV";
+
+// ==========================================
+
+
+function obtenerFechaTurno() {
+    const ahora = new Date();
+
+    // Si es antes de las 08:00, sigue siendo turno del día anterior
+    if (ahora.getHours() < 8) {
+        ahora.setDate(ahora.getDate() - 1);
+    }
+
+    return ahora;
+}
+
+function formatearFecha(fecha) {
+    return fecha.toLocaleDateString("es-AR", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    });
+}
 
 async function cargarTurno() {
     try {
-        const response = await fetch(urlCSV);
-        const data = await response.text();
+        const fechaTurno = obtenerFechaTurno();
+        document.getElementById("fecha").textContent = formatearFecha(fechaTurno);
 
-        const filas = data.split("\n").slice(1);
-        const hoy = new Date();
-        hoy.setHours(hoy.getHours() - 8);
+        const respuesta = await fetch(CSV_URL);
+        const texto = await respuesta.text();
 
-        const fechaHoy = hoy.toISOString().split("T")[0];
+        const lineas = texto.split("\n");
+        const fechaBuscada = fechaTurno.toISOString().split("T")[0];
 
-        const filaHoy = filas.find(fila => fila.startsWith(fechaHoy));
+        let encontrado = false;
 
-        if (!filaHoy) {
-            document.getElementById("farmacia").innerText = "No hay turno cargado";
-            return;
+        for (let i = 1; i < lineas.length; i++) {
+            const columnas = lineas[i].split(",");
+
+            const fechaCSV = columnas[0];
+            const nombre = columnas[1];
+            const maps = columnas[2];
+            const whatsapp = columnas[3];
+
+            if (fechaCSV === fechaBuscada) {
+                document.getElementById("farmacia").textContent = nombre;
+                document.getElementById("btnMaps").href = maps;
+                document.getElementById("btnWpp").href = whatsapp;
+                encontrado = true;
+                break;
+            }
         }
 
-        const columnas = filaHoy.split(",");
-
-        const nombre = columnas[1];
-        const maps = columnas[2];
-        const wpp = columnas[3];
-
-        document.getElementById("farmacia").innerText = nombre;
-
-        document.getElementById("btn-maps").href = maps;
-        document.getElementById("btn-wpp").href = wpp;
-
-        const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        document.getElementById("fecha").innerText =
-            hoy.toLocaleDateString("es-AR", opciones);
+        if (!encontrado) {
+            document.getElementById("farmacia").textContent = "No hay turno cargado";
+        }
 
     } catch (error) {
-        console.error("Error cargando datos:", error);
+        document.getElementById("farmacia").textContent = "Error cargando turno";
+        console.error(error);
     }
 }
 
